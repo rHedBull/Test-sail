@@ -1,0 +1,14 @@
+{
+  "name": "architecture-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio website for architecture students",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}

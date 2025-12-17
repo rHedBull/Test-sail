@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Architecture Portfolio | Alexandra Chen</title>
+  <link rel="stylesheet" href="/src/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo">AC</a>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <p class="hero-subtitle">Architecture & Design</p>
+      <h1 class="hero-title">Creating Spaces<br>That Inspire</h1>
+      <p class="hero-description">Blending sustainable design with modern aesthetics to create meaningful architectural experiences.</p>
+      <a href="#projects" class="btn btn-primary">View Projects</a>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-shape"></div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">About</span>
+        <h2 class="section-title">Designer & Visionary</h2>
+      </div>
+      <div class="about-content">
+        <div class="about-text">
+          <p id="bio-text">Loading...</p>
+          <div class="about-details">
+            <div class="detail-item">
+              <h4>Location</h4>
+              <p id="location-text">-</p>
+            </div>
+            <div class="detail-item">
+              <h4>Education</h4>
+              <ul id="education-list"></ul>
+            </div>
+          </div>
+        </div>
+        <div class="skills-section">
+          <h3>Skills & Tools</h3>
+          <div id="skills-grid" class="skills-grid"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Portfolio</span>
+        <h2 class="section-title">Selected Works</h2>
+      </div>
+      <div class="filter-buttons" id="filter-buttons">
+        <button class="filter-btn active" data-category="all">All</button>
+      </div>
+      <div id="projects-grid" class="projects-grid">
+        <!-- Projects will be loaded dynamically -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Contact</span>
+        <h2 class="section-title">Let's Connect</h2>
+      </div>
+      <div class="contact-content">
+        <p class="contact-description">Interested in collaborating or have a project in mind? I'd love to hear from you.</p>
+        <a href="mailto:alexandra.chen@example.com" id="contact-email" class="btn btn-primary">Get In Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 Alexandra Chen. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Project Modal -->
+  <div id="project-modal" class="modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <div class="modal-body">
+        <div class="modal-image">
+          <div id="modal-placeholder" class="project-placeholder"></div>
+        </div>
+        <div class="modal-info">
+          <span id="modal-category" class="project-category"></span>
+          <h2 id="modal-title"></h2>
+          <p id="modal-description"></p>
+          <p id="modal-details" class="modal-details"></p>
+          <p id="modal-year" class="modal-year"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
