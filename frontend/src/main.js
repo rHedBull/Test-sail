@@ -1,5 +1,7 @@
-// API base URL
-const API_BASE = '/api';
+// API base URL - set this to your Render backend URL after deployment
+// Example: 'https://architecture-portfolio-api.onrender.com/api'
+// Leave as '/api' for local development, or null to use static data only
+const API_BASE = window.PORTFOLIO_API_URL || '/api';
 
 // DOM Elements
 const bioText = document.getElementById('bio-text');
@@ -53,19 +55,21 @@ function renderProfile() {
   document.querySelector('.hero-title').innerHTML = `Creating Spaces<br>That Inspire`;
 }
 
-// Fallback profile for when API is not available
+// Fallback profile for when API is not available (static deployment)
 function renderFallbackProfile() {
   const fallback = {
-    bio: "Passionate architecture student with a focus on sustainable design and urban planning.",
+    bio: "Passionate architecture student with a focus on sustainable design and urban planning. I believe in creating spaces that harmonize with nature while serving human needs. Currently pursuing my Master's in Architecture with a specialization in eco-friendly residential design.",
     location: "New York, NY",
+    email: "alexandra.chen@example.com",
     education: ["M.Arch - Columbia University (2024)", "B.Arch - Cornell University (2022)"],
-    skills: ["AutoCAD", "Revit", "SketchUp", "Rhino 3D", "Adobe Creative Suite", "Sustainable Design"]
+    skills: ["AutoCAD", "Revit", "SketchUp", "Rhino 3D", "Adobe Creative Suite", "Sustainable Design", "3D Modeling", "Hand Sketching"]
   };
 
   bioText.textContent = fallback.bio;
   locationText.textContent = fallback.location;
   educationList.innerHTML = fallback.education.map(edu => `<li>${edu}</li>`).join('');
   skillsGrid.innerHTML = fallback.skills.map(skill => `<span class="skill-tag">${skill}</span>`).join('');
+  contactEmail.href = `mailto:${fallback.email}`;
 }
 
 // Load projects
@@ -125,15 +129,60 @@ function renderProjects(projects) {
   });
 }
 
-// Fallback projects
+// Fallback projects (static deployment - full portfolio data)
 function renderFallbackProjects() {
   allProjects = [
-    { id: 1, title: "Urban Eco-Housing", description: "Sustainable residential complex", category: "Residential", year: 2024 },
-    { id: 2, title: "Cultural Arts Center", description: "Community arts and exhibition space", category: "Cultural", year: 2023 },
-    { id: 3, title: "Waterfront Pavilion", description: "Minimalist waterfront design", category: "Public Space", year: 2023 }
+    {
+      id: 1,
+      title: "Urban Eco-Housing Complex",
+      description: "A sustainable residential complex designed with green roofs, solar panels, and rainwater harvesting systems.",
+      category: "Residential",
+      year: 2024,
+      details: "This 50-unit housing complex integrates passive solar design, vertical gardens, and community spaces to create a sustainable urban living environment."
+    },
+    {
+      id: 2,
+      title: "Cultural Arts Center",
+      description: "A community arts center featuring flexible exhibition spaces and an outdoor amphitheater.",
+      category: "Cultural",
+      year: 2023,
+      details: "Designed to serve as a cultural hub, this center includes galleries, workshop spaces, a 200-seat theater, and landscaped public plazas."
+    },
+    {
+      id: 3,
+      title: "Waterfront Pavilion",
+      description: "A minimalist pavilion design for waterfront relaxation and community gatherings.",
+      category: "Public Space",
+      year: 2023,
+      details: "This floating pavilion uses recycled materials and features a retractable canopy system that responds to weather conditions."
+    },
+    {
+      id: 4,
+      title: "Mountain Retreat Cabin",
+      description: "A modern cabin design that blends with the natural mountain landscape.",
+      category: "Residential",
+      year: 2024,
+      details: "Built with locally-sourced timber, this cabin features floor-to-ceiling windows and a cantilevered deck overlooking the valley."
+    },
+    {
+      id: 5,
+      title: "Urban Library Renovation",
+      description: "Transformation of a historic building into a modern public library.",
+      category: "Cultural",
+      year: 2022,
+      details: "This adaptive reuse project preserves the original facade while creating contemporary reading spaces and a rooftop garden."
+    },
+    {
+      id: 6,
+      title: "Sustainable Office Tower",
+      description: "A net-zero energy office building with innovative facade design.",
+      category: "Commercial",
+      year: 2024,
+      details: "The tower features a dynamic shading system, integrated wind turbines, and a biophilic interior design approach."
+    }
   ];
   renderProjects(allProjects);
-  renderFilterButtons(["Residential", "Cultural", "Public Space"]);
+  renderFilterButtons(["Residential", "Cultural", "Public Space", "Commercial"]);
 }
 
 // Get category CSS class

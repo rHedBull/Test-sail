@@ -124,6 +124,43 @@ Modify CSS variables in `frontend/src/style.css`:
 }
 ```
 
+## Free Deployment (Render)
+
+Deploy this portfolio for free using Render's one-click deploy:
+
+### Option 1: Static Site Only (Easiest)
+
+The frontend works standalone with built-in portfolio data - no backend needed!
+
+1. Go to [render.com](https://render.com) and sign up (free)
+2. Click **New** → **Static Site**
+3. Connect your GitHub repository
+4. Configure:
+   - **Root Directory**: `frontend`
+   - **Build Command**: `npm install && npm run build`
+   - **Publish Directory**: `dist`
+5. Click **Create Static Site**
+
+Your site will be live at `https://your-site-name.onrender.com`
+
+### Option 2: Full Stack Deploy (One-Click)
+
+Deploy both frontend and backend using the included `render.yaml`:
+
+1. Go to [render.com](https://render.com) and sign up
+2. Click **New** → **Blueprint**
+3. Connect your GitHub repository
+4. Render will detect `render.yaml` and deploy both services
+
+Note: Free tier backend sleeps after 15 minutes of inactivity (~30s wake time).
+
+### Alternative: Vercel (Static)
+
+1. Go to [vercel.com](https://vercel.com) and sign up
+2. Import your GitHub repository
+3. Set **Root Directory** to `frontend`
+4. Deploy automatically
+
 ## Tech Stack
 
 - **Backend**: FastAPI, Uvicorn, Pydantic
