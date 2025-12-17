@@ -6,8 +6,16 @@
   <title>Architecture Portfolio | Alexandra Chen</title>
   <link rel="stylesheet" href="/src/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
+  <!-- Page Loader -->
+  <div id="loader" class="loader">
+    <div class="loader-content">
+      <div class="loader-cube"></div>
+      <p>Loading...</p>
+    </div>
+  </div>
   <!-- Navigation -->
   <nav class="navbar">
     <div class="nav-container">
@@ -28,21 +36,21 @@
 
   <!-- Hero Section -->
   <section id="home" class="hero">
-    <div class="hero-content">
+    <div class="hero-content fade-in">
       <p class="hero-subtitle">Architecture & Design</p>
       <h1 class="hero-title">Creating Spaces<br>That Inspire</h1>
       <p class="hero-description">Blending sustainable design with modern aesthetics to create meaningful architectural experiences.</p>
       <a href="#projects" class="btn btn-primary">View Projects</a>
     </div>
     <div class="hero-visual">
-      <div class="hero-shape"></div>
+      <canvas id="hero-canvas"></canvas>
     </div>
   </section>
 
   <!-- About Section -->
   <section id="about" class="about">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header scroll-fade">
         <span class="section-label">About</span>
         <h2 class="section-title">Designer & Visionary</h2>
       </div>
@@ -71,7 +79,7 @@
   <!-- Projects Section -->
   <section id="projects" class="projects">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header scroll-fade">
         <span class="section-label">Portfolio</span>
         <h2 class="section-title">Selected Works</h2>
       </div>
@@ -111,7 +119,7 @@
       <button class="modal-close">&times;</button>
       <div class="modal-body">
         <div class="modal-image">
-          <div id="modal-placeholder" class="project-placeholder"></div>
+          <img id="modal-img" src="" alt="Project image" />
         </div>
         <div class="modal-info">
           <span id="modal-category" class="project-category"></span>
