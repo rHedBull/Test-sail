@@ -223,9 +223,66 @@ section {
 
 .about-content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 300px 1fr;
   gap: 60px;
   align-items: start;
+}
+
+/* Profile Photo Section */
+.profile-photo-section {
+  text-align: center;
+  position: sticky;
+  top: 120px;
+}
+
+.profile-photo-container {
+  width: 250px;
+  height: 250px;
+  margin: 0 auto 24px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  border: 5px solid transparent;
+  background: var(--gradient-main);
+  padding: 5px;
+}
+
+.profile-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  background: var(--color-surface);
+}
+
+.profile-photo-placeholder {
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-hero);
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-secondary);
+}
+
+.profile-photo-section h3 {
+  font-size: 1.75rem;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+}
+
+.profile-title {
+  color: var(--color-secondary);
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.about-details-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
 }
 
 .about-text p {
@@ -558,6 +615,21 @@ section {
 
   .about-content {
     grid-template-columns: 1fr;
+  }
+
+  .profile-photo-section {
+    position: relative;
+    top: 0;
+    margin-bottom: 32px;
+  }
+
+  .profile-photo-container {
+    width: 200px;
+    height: 200px;
+  }
+
+  .about-details-wrapper {
+    gap: 32px;
   }
 
   .modal-body {

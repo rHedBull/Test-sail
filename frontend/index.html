@@ -55,22 +55,37 @@
         <h2 class="section-title">Your Trusted Real Estate Partner</h2>
       </div>
       <div class="about-content">
-        <div class="about-text">
-          <p id="bio-text">Loading...</p>
-          <div class="about-details">
-            <div class="detail-item">
-              <h4>Location</h4>
-              <p id="location-text">-</p>
-            </div>
-            <div class="detail-item">
-              <h4>Education</h4>
-              <ul id="education-list"></ul>
+        <div class="profile-photo-section scroll-fade">
+          <div class="profile-photo-container">
+            <img id="profile-photo" src="/paula-profile.jpg" alt="Paula Keßler" class="profile-photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="profile-photo-placeholder">
+              <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
             </div>
           </div>
+          <h3 id="profile-name">Paula Keßler</h3>
+          <p id="profile-title" class="profile-title">Real Estate Professional</p>
         </div>
-        <div class="skills-section">
-          <h3>Skills & Tools</h3>
-          <div id="skills-grid" class="skills-grid"></div>
+        <div class="about-details-wrapper">
+          <div class="about-text">
+            <p id="bio-text">Loading...</p>
+            <div class="about-details">
+              <div class="detail-item">
+                <h4>Location</h4>
+                <p id="location-text">-</p>
+              </div>
+              <div class="detail-item">
+                <h4>Education</h4>
+                <ul id="education-list"></ul>
+              </div>
+            </div>
+          </div>
+          <div class="skills-section">
+            <h3>Skills & Tools</h3>
+            <div id="skills-grid" class="skills-grid"></div>
+          </div>
         </div>
       </div>
     </div>

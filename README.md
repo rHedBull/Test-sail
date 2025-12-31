@@ -93,8 +93,31 @@ The frontend will be available at `http://localhost:3000`
 
 ## Customization
 
-### Updating Profile
-Edit the fallback profile in `frontend/src/main.js` to update:
+### Adding Paula's Profile Picture
+
+To add Paula's LinkedIn profile photo:
+
+1. **Download the photo from LinkedIn:**
+   - Visit [Paula's LinkedIn profile](https://www.linkedin.com/in/paula-marie-ke%C3%9Fler-b5bb3b272)
+   - Right-click on her profile picture and save it
+
+2. **Add to the project:**
+   - Save the image as `paula-profile.jpg` in the `frontend/public/` directory
+   - Or update the image path in `frontend/index.html` (line 60):
+     ```html
+     <img id="profile-photo" src="/your-image-name.jpg" alt="Paula Keßler">
+     ```
+
+3. **Alternative - Use a direct URL:**
+   - If you have a direct image URL, update line 60 in `frontend/index.html`:
+     ```html
+     <img id="profile-photo" src="https://your-image-url.com/photo.jpg" alt="Paula Keßler">
+     ```
+
+The photo will display with an orange-to-green gradient border matching the site theme.
+
+### Updating Profile Information
+Edit the fallback profile in `frontend/src/main.js` (lines 573-586) to update:
 - Agent name and bio
 - Contact email and location
 - Professional credentials
@@ -156,12 +179,29 @@ Deploy both frontend and backend using the included `render.yaml`:
 
 Note: Free tier backend sleeps after 15 minutes of inactivity (~30s wake time).
 
-### Alternative: Vercel (Static)
+### Vercel Deployment (Recommended)
+
+**One-Click Deploy:**
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/rHedBull/Test-sail&project-name=paula-kessler-real-estate&repository-name=paula-kessler-real-estate&root-directory=frontend)
+
+**Or Manual Deploy:**
 
 1. Go to [vercel.com](https://vercel.com) and sign up
-2. Import your GitHub repository
-3. Set **Root Directory** to `frontend`
-4. Deploy automatically
+2. Click "New Project" and import your GitHub repository
+3. Configure the project:
+   - **Framework Preset:** Vite
+   - **Root Directory:** `frontend`
+   - **Build Command:** `npm run build`
+   - **Output Directory:** `dist`
+4. Click "Deploy"
+
+Your site will be live at `https://your-project-name.vercel.app`
+
+**Important:** After deploying, add Paula's profile picture:
+1. Go to your Vercel project dashboard
+2. Navigate to the "Storage" tab or add the image to `frontend/public/`
+3. Redeploy if needed
 
 ## Tech Stack
 
