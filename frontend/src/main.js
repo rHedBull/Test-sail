@@ -15,25 +15,24 @@ const PROJECT_IMAGES = {
   6: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80'
 };
 
-// 3D Models configuration - using free sample models
+// 3D Models configuration - property previews
 const MODELS_3D = [
   {
     id: 'modern-house',
-    name: 'Modern House',
-    description: 'Residential',
-    // Using a procedural model since we can't load external GLTF without CORS
+    name: 'Modern Family Home',
+    description: 'Residential Property',
     type: 'procedural'
   },
   {
     id: 'office-tower',
-    name: 'Office Tower',
-    description: 'Commercial',
+    name: 'Premium Office',
+    description: 'Commercial Space',
     type: 'procedural'
   },
   {
     id: 'pavilion',
-    name: 'Garden Pavilion',
-    description: 'Public Space',
+    name: 'Garden Villa',
+    description: 'Luxury Estate',
     type: 'procedural'
   }
 ];
@@ -91,15 +90,15 @@ function init3DScene() {
 
   const buildingGroup = new THREE.Group();
 
-  // Materials
+  // Materials with orange-green gradient theme
   const glassMaterial = new THREE.MeshPhongMaterial({
     color: 0x88ccff, transparent: true, opacity: 0.7, shininess: 100
   });
   const concreteMaterial = new THREE.MeshPhongMaterial({
-    color: 0x8b7355, flatShading: true
+    color: 0xff8c42, flatShading: true
   });
   const accentMaterial = new THREE.MeshPhongMaterial({
-    color: 0xc9a86c, shininess: 80
+    color: 0x52b788, shininess: 80
   });
 
   // Main tower
@@ -132,7 +131,7 @@ function init3DScene() {
   // Wireframe
   const wireframe = new THREE.Mesh(
     new THREE.BoxGeometry(2.1, 5.1, 2.1),
-    new THREE.MeshBasicMaterial({ color: 0xc9a86c, wireframe: true, transparent: true, opacity: 0.3 })
+    new THREE.MeshBasicMaterial({ color: 0xff6b35, wireframe: true, transparent: true, opacity: 0.3 })
   );
   wireframe.position.y = 2.5;
   buildingGroup.add(wireframe);
@@ -144,9 +143,12 @@ function init3DScene() {
   const dirLight = new THREE.DirectionalLight(0xffffff, 0.8);
   dirLight.position.set(5, 10, 7);
   scene.add(dirLight);
-  const pointLight = new THREE.PointLight(0xc9a86c, 0.5);
+  const pointLight = new THREE.PointLight(0xff6b35, 0.5);
   pointLight.position.set(-5, 5, 5);
   scene.add(pointLight);
+  const greenLight = new THREE.PointLight(0x52b788, 0.3);
+  greenLight.position.set(5, 3, -5);
+  scene.add(greenLight);
 
   camera.position.set(4, 3, 6);
   camera.lookAt(0, 2, 0);
@@ -215,9 +217,13 @@ function initModelViewer() {
   mainLight.shadow.mapSize.height = 2048;
   scene.add(mainLight);
 
-  const fillLight = new THREE.DirectionalLight(0xc9a86c, 0.3);
+  const fillLight = new THREE.DirectionalLight(0xff8c42, 0.3);
   fillLight.position.set(-10, 5, -10);
   scene.add(fillLight);
+
+  const greenFillLight = new THREE.DirectionalLight(0x52b788, 0.2);
+  greenFillLight.position.set(10, 5, 10);
+  scene.add(greenFillLight);
 
   // Ground plane
   const groundGeometry = new THREE.PlaneGeometry(30, 30);
@@ -572,11 +578,11 @@ function renderProfile() {
 
 function renderFallbackProfile() {
   const fallback = {
-    bio: "Passionate architecture student with a focus on sustainable design and urban planning. I believe in creating spaces that harmonize with nature while serving human needs.",
-    location: "New York, NY",
-    email: "alexandra.chen@example.com",
-    education: ["M.Arch - Columbia University (2024)", "B.Arch - Cornell University (2022)"],
-    skills: ["AutoCAD", "Revit", "SketchUp", "Rhino 3D", "Adobe Creative Suite", "Sustainable Design", "3D Modeling", "Hand Sketching"]
+    bio: "With over 15 years of experience in the real estate market, Paula Keßler specializes in connecting clients with their dream properties. Whether you're looking for a modern apartment, luxury villa, or commercial space, I provide personalized service and expert guidance throughout your real estate journey.",
+    location: "Frankfurt, Germany",
+    email: "paula.kessler@realestate.com",
+    education: ["Certified Real Estate Agent (2009)", "Business Administration - Goethe University (2007)"],
+    skills: ["Property Valuation", "Market Analysis", "Negotiation", "Client Relations", "Investment Consulting", "Property Management", "Virtual Tours", "Contract Management"]
   };
   bioText.textContent = fallback.bio;
   locationText.textContent = fallback.location;
@@ -644,15 +650,15 @@ function renderProjects(projects) {
 
 function renderFallbackProjects() {
   allProjects = [
-    { id: 1, title: "Urban Eco-Housing Complex", description: "A sustainable residential complex with green roofs and solar panels.", category: "Residential", year: 2024, image: PROJECT_IMAGES[1], details: "This 50-unit housing complex integrates passive solar design and vertical gardens." },
-    { id: 2, title: "Cultural Arts Center", description: "A community arts center with flexible exhibition spaces.", category: "Cultural", year: 2023, image: PROJECT_IMAGES[2], details: "Includes galleries, workshop spaces, and a 200-seat theater." },
-    { id: 3, title: "Waterfront Pavilion", description: "A minimalist pavilion design for waterfront relaxation.", category: "Public Space", year: 2023, image: PROJECT_IMAGES[3], details: "Uses recycled materials with a retractable canopy system." },
-    { id: 4, title: "Mountain Retreat Cabin", description: "A modern cabin blending with the natural landscape.", category: "Residential", year: 2024, image: PROJECT_IMAGES[4], details: "Built with locally-sourced timber and floor-to-ceiling windows." },
-    { id: 5, title: "Urban Library Renovation", description: "Historic building transformed into a modern library.", category: "Cultural", year: 2022, image: PROJECT_IMAGES[5], details: "Preserves the original facade with contemporary reading spaces." },
-    { id: 6, title: "Sustainable Office Tower", description: "A net-zero energy office building.", category: "Commercial", year: 2024, image: PROJECT_IMAGES[6], details: "Features dynamic shading and integrated wind turbines." }
+    { id: 1, title: "Modern Penthouse Apartment", description: "Luxurious 3-bedroom penthouse with panoramic city views.", category: "Residential", year: 2024, image: PROJECT_IMAGES[1], details: "250m² of elegant living space with rooftop terrace, premium finishes, and smart home technology. €1,250,000" },
+    { id: 2, title: "Historic Villa Renovation", description: "Beautifully restored 19th-century villa in prime location.", category: "Luxury", year: 2024, image: PROJECT_IMAGES[2], details: "5 bedrooms, landscaped gardens, original architectural details preserved. €2,800,000" },
+    { id: 3, title: "Riverside Family Home", description: "Spacious family home with garden and river access.", category: "Residential", year: 2024, image: PROJECT_IMAGES[3], details: "4 bedrooms, modern kitchen, private dock, peaceful neighborhood. €890,000" },
+    { id: 4, title: "Mountain Chalet Retreat", description: "Alpine chalet with stunning mountain views.", category: "Vacation", year: 2024, image: PROJECT_IMAGES[4], details: "Authentic wood construction, 3 bedrooms, fireplace, ski-in/ski-out access. €1,450,000" },
+    { id: 5, title: "City Center Office Space", description: "Premium office space in central business district.", category: "Commercial", year: 2024, image: PROJECT_IMAGES[5], details: "450m² open-plan office, modern infrastructure, excellent transport links. €3,500/month" },
+    { id: 6, title: "Eco-Friendly Smart Home", description: "Sustainable new-build with latest green technology.", category: "Residential", year: 2024, image: PROJECT_IMAGES[6], details: "Energy-positive design, solar panels, heat pump, smart automation. €975,000" }
   ];
   renderProjects(allProjects);
-  renderFilterButtons(["Residential", "Cultural", "Public Space", "Commercial"]);
+  renderFilterButtons(["Residential", "Luxury", "Vacation", "Commercial"]);
 }
 
 // ============================================

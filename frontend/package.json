@@ -1,7 +1,7 @@
 {
-  "name": "architecture-portfolio",
+  "name": "paula-kessler-real-estate",
   "version": "1.0.0",
-  "description": "Portfolio website for architecture students",
+  "description": "Premium real estate portfolio website for Paula Keßler",
   "type": "module",
   "scripts": {
     "dev": "vite",
