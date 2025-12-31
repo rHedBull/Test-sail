@@ -1,6 +1,6 @@
-# Architecture Portfolio Website
+# Paula Keßler Real Estate Portfolio
 
-A modern portfolio website designed for architecture students, featuring a FastAPI backend and a Vite-powered frontend.
+A premium real estate portfolio website showcasing exceptional properties with interactive 3D tours, featuring a FastAPI backend and a Vite-powered frontend with Three.js 3D visualizations.
 
 ## Project Structure
 
@@ -20,12 +20,14 @@ A modern portfolio website designed for architecture students, featuring a FastA
 
 ## Features
 
+- **Interactive 3D Property Tours**: Explore properties with immersive Three.js 3D models
+- **Orange-to-Green Gradient Design**: Modern, vibrant color scheme
 - **Responsive Design**: Works seamlessly on desktop and mobile devices
-- **Dynamic Content**: Projects and profile loaded from FastAPI backend
-- **Project Filtering**: Filter projects by category (Residential, Cultural, etc.)
-- **Modal Details**: Click on projects to see detailed information
-- **Smooth Animations**: Subtle animations for enhanced user experience
-- **Modern Aesthetic**: Clean, minimalist design suited for architecture portfolios
+- **Dynamic Content**: Property listings and profile loaded from FastAPI backend
+- **Property Filtering**: Filter properties by category (Residential, Luxury, Commercial, etc.)
+- **Modal Details**: Click on properties to see detailed information with pricing
+- **Smooth Animations**: Professional animations for enhanced user experience
+- **Modern Aesthetic**: Clean, elegant design perfect for premium real estate
 
 ## Getting Started
 
@@ -84,42 +86,42 @@ The frontend will be available at `http://localhost:3000`
 | Endpoint | Method | Description |
 |----------|--------|-------------|
 | `/` | GET | API info |
-| `/api/profile` | GET | Get portfolio owner's profile |
-| `/api/projects` | GET | Get all projects (optional `?category=` filter) |
-| `/api/projects/{id}` | GET | Get specific project by ID |
-| `/api/categories` | GET | Get all project categories |
+| `/api/profile` | GET | Get real estate agent's profile |
+| `/api/projects` | GET | Get all properties (optional `?category=` filter) |
+| `/api/projects/{id}` | GET | Get specific property by ID |
+| `/api/categories` | GET | Get all property categories |
 
 ## Customization
 
 ### Updating Profile
-Edit the `PROFILE` object in `backend/main.py` to update:
-- Name and title
-- Bio description
-- Email and location
-- Education history
-- Skills list
+Edit the fallback profile in `frontend/src/main.js` to update:
+- Agent name and bio
+- Contact email and location
+- Professional credentials
+- Skills and expertise
 
-### Adding Projects
-Add new `Project` objects to the `PROJECTS` list in `backend/main.py`:
-```python
-Project(
-    id=7,
-    title="Your Project Title",
-    description="Brief description",
-    category="Category Name",
-    year=2024,
-    image="/images/project7.jpg",
-    details="Extended project details..."
-)
+### Adding Properties
+Add new property listings to the `renderFallbackProjects()` function in `frontend/src/main.js`:
+```javascript
+{
+  id: 7,
+  title: "Your Property Title",
+  description: "Brief description",
+  category: "Category",
+  year: 2024,
+  image: PROJECT_IMAGES[1],
+  details: "Full details with pricing..."
+}
 ```
 
 ### Styling
-Modify CSS variables in `frontend/src/style.css`:
+The site features an orange-to-green gradient theme. Modify CSS variables in `frontend/src/style.css`:
 ```css
 :root {
   --color-primary: #2d2d2d;
-  --color-secondary: #8b7355;
-  --color-accent: #c9a86c;
+  --color-secondary: #ff6b35;  /* Orange */
+  --color-accent: #4ecb71;     /* Green */
+  --gradient-main: linear-gradient(135deg, #ff6b35 0%, #ff8c42 25%, #ffa500 50%, #95d5b2 75%, #52b788 100%);
   /* ... */
 }
 ```
@@ -165,7 +167,9 @@ Note: Free tier backend sleeps after 15 minutes of inactivity (~30s wake time).
 
 - **Backend**: FastAPI, Uvicorn, Pydantic
 - **Frontend**: Vite, Vanilla JavaScript, CSS3
+- **3D Graphics**: Three.js, OrbitControls
 - **Fonts**: Playfair Display, Inter (Google Fonts)
+- **Deployment**: Vercel (frontend), Render (optional backend)
 
 ## License
 
